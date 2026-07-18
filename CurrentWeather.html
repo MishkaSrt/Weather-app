@@ -1,0 +1,39 @@
+<script setup>
+  import { ref } from "vue";
+  import { DotLottieVue } from "@lottiefiles/dotlottie-vue";
+  import BorderLine from "./BorderLine.vue";
+
+  defineProps({
+    place: Object,
+  });
+</script>
+
+<template>
+  <div class="text-black rounded-lg flex flex-col justify-start pb-10">
+    <!-- Icon -->
+    <div v-if="place.current.condition.text.toLowerCase().includes('sun')">
+      <img src="../assets/images/Sunny.png" alt="" />
+    </div>
+    <!-- Temp -->
+    <div class="text-7xl mb-2 -mr-4 p-4">
+      <h1>{{ Math.round(place.current.temp_c) }}&deg;</h1>
+    </div>
+    <!-- Date&Time -->
+    <div class="pl-4">
+      <h1 class="text-3xl">
+        {{ new Date(place.location.localtime).toLocaleDateString("en-US", {
+        weekday: "long", }) }}, {{ new Date(place.location.localtime).getHours()
+        }} : {{ new Date(place.location.localtime).getMinutes() }}
+      </h1>
+    </div>
+  </div>
+
+  <BorderLine />
+  <div class="p-4">
+    <!-- <i class="fa-solid fa-sun"></i> -->
+    <img class="inline" :src="place.current.condition.icon" alt="" />
+    {{ place.current.condition.text }}
+
+    <div class="">{{ place.location.name }}, {{ place.location.country }}</div>
+  </div>
+</template>
