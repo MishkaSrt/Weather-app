@@ -7,6 +7,7 @@ const searchTerm = reactive({
   timeout: null,
   results: null,
 });
+const apiKey = import.meta.env.VITE_API_KEY;
 
 // const handleSearch = () => {
 //   clearTimeout(searchTerm.timeout);
@@ -74,7 +75,7 @@ const currentWeather = async (locationKey) => {
     `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
     {
       headers: {
-        authorization: "Bearer zpka_e443b5f69b9447f59162facf9a75a837_49daa868",
+        authorization: apiKey,
       },
     },
   );
@@ -90,7 +91,7 @@ const getForecast = async (locationKey) => {
     `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
     {
       headers: {
-        authorization: "Bearer zpka_e443b5f69b9447f59162facf9a75a837_49daa868",
+        authorization: apiKey,
       },
     },
   );
@@ -142,8 +143,7 @@ const handleSearch = () => {
         `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           headers: {
-            authorization:
-              "Bearer zpka_e443b5f69b9447f59162facf9a75a837_49daa868",
+            authorization: apiKey,
           },
         },
       );
