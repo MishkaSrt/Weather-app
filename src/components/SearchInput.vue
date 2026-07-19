@@ -153,6 +153,7 @@ const handleSearch = () => {
         {
           headers: {
             authorization: apiKey,
+            "Content-Type": "application/json",
           },
         },
       );
