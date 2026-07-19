@@ -70,9 +70,18 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //   return data;
 // };
 
+// const currentWeather = async (locationKey) => {
+//   const res = await fetch(
+//     `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
+//     {
+//       headers: {
+//         authorization: apiKey,
+//       },
+//     },
+//   );
 const currentWeather = async (locationKey) => {
   const res = await fetch(
-    `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
+    `/api/weather/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
     {
       headers: {
         authorization: apiKey,

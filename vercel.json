@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/weather/:path*",
+      "destination": "https://accuweather.com*"
+    }
+  ]
+}
