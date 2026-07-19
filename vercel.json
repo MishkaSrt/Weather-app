@@ -5,16 +5,5 @@
       "source": "",
       "destination": "https://dataservice.accuweather.com*"
     }
-  ],
-  "headers": [
-    {
-      "source": "/api/weather/:path*",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Authorization, Content-Type"
-        }
-      ]
-    }
   ]
 }
