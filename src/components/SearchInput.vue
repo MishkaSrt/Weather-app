@@ -95,7 +95,8 @@ const handleSearch = () => {
         `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           headers: {
-            authorization: apiKey,
+            apiKey: apiKey,
+            // authorization: apiKey,
             "Content-Type": "application/json",
           },
         },
