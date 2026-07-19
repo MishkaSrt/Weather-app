@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/weather/:path*",
+      "source": "*",
       "destination": "https://dataservice.accuweather.com*"
     }
   ],
