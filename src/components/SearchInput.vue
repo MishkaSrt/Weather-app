@@ -70,24 +70,24 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //   return data;
 // };
 
-// const currentWeather = async (locationKey) => {
-//   const res = await fetch(
-//     `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
-//     {
-//       headers: {
-//         authorization: apiKey,
-//       },
-//     },
-//   );
 const currentWeather = async (locationKey) => {
   const res = await fetch(
-    `/api/weather/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
+    `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
     {
       headers: {
         authorization: apiKey,
       },
     },
   );
+  // const currentWeather = async (locationKey) => {
+  //   const res = await fetch(
+  //     `/api/weather/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
+  //     {
+  //       headers: {
+  //         authorization: apiKey,
+  //       },
+  //     },
+  //   );
 
   const data = await res.json();
   // console.log(data);
@@ -97,7 +97,7 @@ const currentWeather = async (locationKey) => {
 
 const getForecast = async (locationKey) => {
   const res = await fetch(
-    `/api/weather/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
+    `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
     {
       headers: {
         authorization: apiKey,
@@ -149,7 +149,7 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
+        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           headers: {
             authorization: apiKey,
