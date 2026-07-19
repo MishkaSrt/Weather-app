@@ -7,7 +7,7 @@ const searchTerm = reactive({
   timeout: null,
   results: null,
 });
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_ACCUWEATHER_KEY;
 
 // const getWeather = async (id) => {
 //   const res = await fetch(
