@@ -5,5 +5,16 @@
       "source": "/api/weather/:path*",
       "destination": "https://accuweather.com*"
     }
+  ],
+  "headers": [
+    {
+      "source": "/api/weather/:path*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Authorization, Content-Type"
+        }
+      ]
+    }
   ]
 }
