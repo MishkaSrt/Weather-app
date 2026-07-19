@@ -70,79 +70,39 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //   return data;
 // };
 
-const currentWeather = async (locationKey) => {
-  const res = await fetch(
-    `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
-    {
-      headers: {
-        authorization: apiKey,
-      },
-    },
-  );
-  // const currentWeather = async (locationKey) => {
-  //   const res = await fetch(
-  //     `/api/weather/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
-  //     {
-  //       headers: {
-  //         authorization: apiKey,
-  //       },
-  //     },
-  //   );
+// const currentWeather = async (locationKey) => {
+//   const res = await fetch(
+//     `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?details=true&getPhotos=true`,
+//     {
+//       headers: {
+//         authorization: apiKey,
+//       },
+//     },
+//   );
 
-  const data = await res.json();
-  // console.log(data);
+//   const data = await res.json();
+//   // console.log(data);
 
-  return data;
-};
-
-const getForecast = async (locationKey) => {
-  const res = await fetch(
-    `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
-    {
-      headers: {
-        authorization: apiKey,
-      },
-    },
-  );
-  const data = await res.json();
-  // let filteredData = [];
-  // let allowedIds = ["Date", "Day", "Night", "AirAndPollen", "Temperature"];
-  // // for (item in data) {
-  // // filteredData.push(item.DailyForecasts[0])
-  // // }
-
-  // for (let item of data.DailyForecasts) {
-  //   filteredData.push(Object.fromEntries(allowedIds.map((i) => [i, item[i]])));
-  // }
-
-  searchTerm.query = "";
-  searchTerm.results = null;
-
-  // const finalData = filteredData.reduce((accumulator, currentObject) => {
-  //   accumulator[currentObject.Date] = currentObject;
-  //   return accumulator;
-  // });
-  // console.log(data);
-  return data;
-  // emit("final-data", data);
-};
-
-// const handleSearch = () => {
-//   clearTimeout(searchTerm.timeout);
-
-//   searchTerm.timeout = setTimeout(async () => {
-//     if (searchTerm.query !== "") {
-//       const res = await fetch(
-//         `http://api.openweathermap.org/geo/1.0/direct?q=${searchTerm.query}&limit=5&appid=f48e7603ae95492e727aeb529dcc2dab`,
-//       );
-//       const data = await res.json();
-//       searchTerm.results = data;
-//       console.log(searchTerm.query);
-//     } else {
-//       searchTerm.results = null;
-//     }
-//   }, 500);
+//   return data;
 // };
+
+// const getForecast = async (locationKey) => {
+//   const res = await fetch(
+//     `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
+//     {
+//       headers: {
+//         authorization: apiKey,
+//       },
+//     },
+//   );
+//   const data = await res.json();
+
+//   searchTerm.query = "";
+//   searchTerm.results = null;
+
+//   return data;
+// };
+
 const handleSearch = () => {
   clearTimeout(searchTerm.timeout);
 
@@ -167,17 +127,6 @@ const handleSearch = () => {
     }
   }, 500);
 };
-// const currentWeather = async (lat, lon) => {
-//   const res = await fetch(
-//     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=f48e7603ae95492e727aeb529dcc2dab`,
-//   );
-//   const data = await res.json();
-//   // console.log(data);
-//   // emit("current-data", data);
-
-//   // console.log("this is current weather");
-//   return data;
-// };
 
 const weatherData = async (locationKey) => {
   try {
@@ -192,21 +141,6 @@ const weatherData = async (locationKey) => {
     console.log("One of the API calls failed", error);
   }
 };
-
-// const weatherData = async (lat, lon) => {
-//   try {
-//     const [currentWeatherData, forecastData] = await Promise.all([
-//       currentWeather(lat, lon),
-//       getForecast(lat, lon),
-//     ]);
-//     const final = { currentWeatherData, forecastData };
-//     // const final1 = { currentWeatherData, forecastData };
-//     // return final;
-//     emit("final-data", final);
-//   } catch (error) {
-//     console.log("One of the API calls failed", error);
-//   }
-// };
 </script>
 
 <template>
