@@ -97,7 +97,7 @@ const currentWeather = async (locationKey) => {
 
 const getForecast = async (locationKey) => {
   const res = await fetch(
-    `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
+    `/api/weather/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
     {
       headers: {
         authorization: apiKey,
@@ -149,7 +149,7 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
+        `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           headers: {
             authorization: apiKey,
