@@ -94,8 +94,11 @@ const handleSearch = () => {
       const res = await fetch(
         `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
+          method: "GET",
           headers: {
-            authorization: apiKey,
+            apiKey: apiKey,
+            // authorization: apiKey,
+            "Content-Type": "application/json",
           },
         },
       );
