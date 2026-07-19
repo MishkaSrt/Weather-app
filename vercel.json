@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/weather/:path*",
-      "destination": "https://accuweather.com*"
+      "destination": "https://dataservice.accuweather.com*"
     }
   ],
   "headers": [
