@@ -9,23 +9,6 @@ const searchTerm = reactive({
 });
 const apiKey = import.meta.env.VITE_API_KEY;
 
-// const handleSearch = () => {
-//   clearTimeout(searchTerm.timeout);
-
-//   searchTerm.timeout = setTimeout(async () => {
-//     if (searchTerm.query !== "") {
-//       const res = await fetch(
-//         `http://api.weatherapi.com/v1/search.json?key=2c8ded4ec07745b7a95134552253006&q=${searchTerm.query}`,
-//       );
-//       const data = await res.json();
-//       searchTerm.results = data;
-//       // console.log(data);
-//     } else {
-//       searchTerm.results = null;
-//     }
-//   }, 500);
-// };
-
 // const getWeather = async (id) => {
 //   const res = await fetch(
 //     `https://api.weatherapi.com/v1/forecast.json?key=2c8ded4ec07745b7a95134552253006&q=id:${id}&days=7&aqi=no&alerts=no`,
@@ -109,7 +92,7 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
+        `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           headers: {
             authorization: apiKey,
