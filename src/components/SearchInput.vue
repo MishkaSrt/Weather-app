@@ -70,11 +70,14 @@ const currentWeather = async (locationKey) => {
 };
 
 const getForecast = async (locationKey) => {
-  const res = await fetch(`/api/weather/forecast/${locationKey}?&metric=true`, {
-    headers: {
-      authorization: apiKey,
+  const res = await fetch(
+    `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
+    {
+      headers: {
+        authorization: apiKey,
+      },
     },
-  });
+  );
   const data = await res.json();
 
   searchTerm.query = "";
