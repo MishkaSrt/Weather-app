@@ -92,11 +92,12 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
+        `/api/weather?q=${encodeURIComponent(searchTerm.query)}`,
         {
           method: "GET",
           headers: {
-            authorization: apiKey,
+            authorization:
+              "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
             // authorization: apiKey,
             "Content-Type": "application/json",
           },
