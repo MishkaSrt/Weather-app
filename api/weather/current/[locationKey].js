@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const { q } = req.query;
-  if (!q) {
+  const { locationKey } = req.query;
+  if (!locationKey) {
     return res.status(400).json({ error: 'Query parameter "q" is required' });
   }
 
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       .json({ error: "Authorization header is required" });
   }
 
-  const currentWeatherUrl = `https://dataservice.accuweather.com/currentconditions/v1/${encodeURIComponent(q)}?details=true&getPhotos=true`;
+  const currentWeatherUrl = `https://dataservice.accuweather.com/currentconditions/v1/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`;
   try {
     const apiResponse = await fetch(currentWeatherUrl, {
       method: "GET",
