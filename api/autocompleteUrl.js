@@ -19,10 +19,10 @@ export default async function handler(req, res) {
       .json({ error: "Authorization header is required" });
   }
 
-  const accuWeatherUrl = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${encodeURIComponent(q)}`;
+  const autoCompleteUrl = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${encodeURIComponent(q)}`;
 
   try {
-    const apiResponse = await fetch(accuWeatherUrl, {
+    const apiResponse = await fetch(autoCompleteUrl, {
       method: "GET",
       headers: {
         Authorization: authHeader,
