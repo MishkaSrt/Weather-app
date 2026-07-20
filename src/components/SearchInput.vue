@@ -7,7 +7,7 @@ const searchTerm = reactive({
   timeout: null,
   results: null,
 });
-const apiKey = import.meta.env.VITE_ACCUWEATHER_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 // const getWeather = async (id) => {
 //   const res = await fetch(
@@ -92,11 +92,11 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `/api/weather/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
+        `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?q=${searchTerm.query}`,
         {
           method: "GET",
           headers: {
-            apiKey: apiKey,
+            authorization: apiKey,
             // authorization: apiKey,
             "Content-Type": "application/json",
           },
