@@ -69,22 +69,22 @@ const currentWeather = async (locationKey) => {
   return data;
 };
 
-// const getForecast = async (locationKey) => {
-//   const res = await fetch(
-//     `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
-//     {
-//       headers: {
-//         authorization: apiKey,
-//       },
-//     },
-//   );
-//   const data = await res.json();
+const getForecast = async (locationKey) => {
+  const res = await fetch(
+    `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?&metric=true`,
+    {
+      headers: {
+        authorization: apiKey,
+      },
+    },
+  );
+  const data = await res.json();
 
-//   searchTerm.query = "";
-//   searchTerm.results = null;
+  searchTerm.query = "";
+  searchTerm.results = null;
 
-//   return data;
-// };
+  return data;
+};
 
 const handleSearch = () => {
   clearTimeout(searchTerm.timeout);
