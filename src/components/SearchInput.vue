@@ -92,7 +92,7 @@ const handleSearch = () => {
   searchTerm.timeout = setTimeout(async () => {
     if (searchTerm.query !== "") {
       const res = await fetch(
-        `/api/weather/autocomplete/autocompleteUrl?q=${encodeURIComponent(searchTerm.query)}`,
+        `/api/weather/autocomplete/?q=${encodeURIComponent(searchTerm.query)}`,
         {
           method: "GET",
           headers: {
