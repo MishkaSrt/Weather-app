@@ -90,28 +90,14 @@ const handleSearch = () => {
   }, 500);
 };
 
-function test1() {
-  console.log("test1");
-  return "test1";
-}
-function test2() {
-  console.log("test2");
-  return "test2";
-}
-
 const weatherData = async (locationKey) => {
   try {
     const [currentWeatherData, forecastData] = await Promise.all([
-      // currentWeather(locationKey),
-      // getForecast(locationKey),
-      // console.log("test"),
-      // console.log("test1"),
-      test1(),
-      test2(),
+      currentWeather(locationKey),
+      getForecast(locationKey),
     ]);
-    // const final = { currentWeatherData, forecastData };
+    const final = { currentWeatherData, forecastData };
 
-    let final = { currentWeatherData, forecastData };
     emit("final-data", final);
   } catch (error) {
     console.log("One of the API calls failed", error);
