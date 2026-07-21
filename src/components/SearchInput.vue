@@ -38,8 +38,7 @@ const currentWeather = async (locationKey) => {
     },
   );
 
-  // const data = await res.json();
-  const data = res.body;
+  const data = res.json();
   // console.log(data);
 
   return data;
@@ -56,8 +55,7 @@ const getForecast = async (locationKey) => {
       },
     },
   );
-  // const data = await res.json();
-  const data = res.body;
+  const data = res.json();
   searchTerm.query = "";
   searchTerm.results = null;
 
