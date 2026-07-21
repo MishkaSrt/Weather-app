@@ -39,7 +39,7 @@ const currentWeather = async (locationKey) => {
   );
 
   const data = await res.json();
-  // console.log(data);
+  console.log(data);
 
   return data;
 };
