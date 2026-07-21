@@ -30,6 +30,7 @@ const currentWeather = async (locationKey) => {
   const res = await fetch(
     `/api/weather/current/${locationKey}?details=true&getPhotos=true`,
     {
+      method: "GET",
       headers: {
         authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
         "Content-Type": "application/json",
@@ -47,6 +48,7 @@ const getForecast = async (locationKey) => {
   const res = await fetch(
     `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
     {
+      method: "GET",
       headers: {
         authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
         "Content-Type": "application/json",
