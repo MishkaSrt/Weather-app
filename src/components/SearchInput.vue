@@ -45,7 +45,6 @@ const currentWeather = async (locationKey) => {
 };
 
 const getForecast = async (locationKey) => {
-  debugger;
   const res = await fetch(
     `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
     {
@@ -68,6 +67,7 @@ const handleSearch = () => {
   clearTimeout(searchTerm.timeout);
 
   searchTerm.timeout = setTimeout(async () => {
+    debugger;
     if (searchTerm.query !== "") {
       const res = await fetch(
         `/api/weather/autocomplete/?q=${encodeURIComponent(searchTerm.query)}`,
