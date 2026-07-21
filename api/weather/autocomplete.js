@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         Accept: "application/json",
       },
     });
-    // const data = await apiResponse.json();
+    const data = await apiResponse.json();
 
     // return res.status(apiResponse.status).json(data);
   } catch (error) {
