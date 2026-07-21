@@ -28,7 +28,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const currentWeather = async (locationKey) => {
   const res = await fetch(
-    `/api/weather/current/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
+    `/api/weather/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
     {
       method: "GET",
       headers: {
@@ -67,7 +67,6 @@ const handleSearch = () => {
   clearTimeout(searchTerm.timeout);
 
   searchTerm.timeout = setTimeout(async () => {
-    debugger;
     if (searchTerm.query !== "") {
       const res = await fetch(
         `/api/weather/autocomplete/?q=${encodeURIComponent(searchTerm.query)}`,
