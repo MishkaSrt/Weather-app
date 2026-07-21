@@ -143,7 +143,7 @@ const weatherData = async (locationKey) => {
             {{ place.name }}, {{ place.country }}
           </button> -->
           <button
-            @click="(weatherData(place.Key), (test = place.LocalizedName))"
+            @click="weatherData(place.Key)"
             class="px-3 my-2 hover:font-bold w-fit text-left"
           >
             {{ place.LocalizedName }}, {{ place.Country.LocalizedName }}
