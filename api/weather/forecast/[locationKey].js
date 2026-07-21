@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       .json({ error: "Authorization header is required" });
   }
 
-  const forecastUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/{locationKey}?&metric=true`;
+  const forecastUrl = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${encodeURIComponent(locationKey)}?&metric=true`;
 
   try {
     const apiResponse = await fetch(forecastUrl, {
