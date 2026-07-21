@@ -29,7 +29,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const currentWeather = async (locationKey) => {
   try {
     const res = await fetch(
-      `/api/weather/current/[locationKey]${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
+      `/api/weather/current/locationKey${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
       {
         method: "GET",
         headers: {
@@ -52,7 +52,7 @@ const currentWeather = async (locationKey) => {
 const getForecast = async (locationKey) => {
   try {
     const res = await fetch(
-      `/api/weather/forecast/[locationKey]${encodeURIComponent(locationKey)}?&metric=true`,
+      `/api/weather/forecast/locationKey${encodeURIComponent(locationKey)}?&metric=true`,
       {
         method: "GET",
         headers: {
