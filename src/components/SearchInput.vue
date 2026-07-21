@@ -26,39 +26,13 @@ const apiKey = import.meta.env.VITE_API_KEY;
 //   searchTerm.results = null;
 // };
 
-// const getForecast = async (lat, lon) => {
-//   const res = await fetch(
-//     `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&cnt=10&appid=f48e7603ae95492e727aeb529dcc2dab`,
-//   );
-
-//   let data = await res.json();
-//   const { list } = data;
-//   const filteredData = [];
-//   filteredData.push(list);
-
-//   // const newData = computed(() => {
-//   // filteredData[0][0].filter((_, item) => item % 3 === 0);
-//   // });
-//   // data = filteredData[0].filter((_, item) => item % 3 === 0);
-//   // data = computed(() => filteredData[0].filter((_, item) => item % 3 === 0));
-//   data = filteredData;
-//   // console.log(data);
-
-//   // console.log(data);
-//   // console.log("this is forecast");
-//   // emit("forecast-data", data);
-
-//   searchTerm.query = "";
-//   searchTerm.results = null;
-//   return data;
-// };
-
 const currentWeather = async (locationKey) => {
   const res = await fetch(
     `/api/weather/current/${locationKey}?details=true&getPhotos=true`,
     {
       headers: {
-        authorization: apiKey,
+        authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
+        "Content-Type": "application/json",
       },
     },
   );
@@ -74,7 +48,8 @@ const getForecast = async (locationKey) => {
     `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
     {
       headers: {
-        authorization: apiKey,
+        authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
+        "Content-Type": "application/json",
       },
     },
   );
@@ -98,7 +73,6 @@ const handleSearch = () => {
           headers: {
             authorization:
               "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
-            // authorization: apiKey,
             "Content-Type": "application/json",
           },
         },
