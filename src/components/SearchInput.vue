@@ -27,39 +27,49 @@ const apiKey = import.meta.env.VITE_API_KEY;
 // };
 
 const currentWeather = async (locationKey) => {
-  const res = await fetch(
-    `/api/weather/current/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
-    {
-      method: "GET",
-      headers: {
-        authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
-        "Content-Type": "application/json",
+  try {
+    const res = await fetch(
+      `/api/weather/current/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`,
+      {
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
+          "Content-Type": "application/json",
+        },
       },
-    },
-  );
+    );
 
-  const data = await res.json();
-  // console.log(data);
+    const data = await res.json();
+    // console.log(data);
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log("Error:", error);
+  }
 };
 
 const getForecast = async (locationKey) => {
-  const res = await fetch(
-    `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
-    {
-      method: "GET",
-      headers: {
-        authorization: "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
-        "Content-Type": "application/json",
+  try {
+    const res = await fetch(
+      `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
+      {
+        method: "GET",
+        headers: {
+          authorization:
+            "Bearer zpka_d510a1cb7d654fc9b22c2cae5e863910_91c94df5",
+          "Content-Type": "application/json",
+        },
       },
-    },
-  );
-  const data = await res.json();
-  searchTerm.query = "";
-  searchTerm.results = null;
+    );
+    const data = await res.json();
+    searchTerm.query = "";
+    searchTerm.results = null;
 
-  return data;
+    return data;
+  } catch (error) {
+    console.log("Error:", error);
+  }
 };
 
 const handleSearch = () => {
@@ -91,7 +101,7 @@ const handleSearch = () => {
 
 const weatherData = async (locationKey) => {
   try {
-    const { currentWeatherData, forecastData } = await Promise.all([
+    const [currentWeatherData, forecastData] = await Promise.all([
       currentWeather(locationKey),
       getForecast(locationKey),
     ]);
