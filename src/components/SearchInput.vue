@@ -45,6 +45,7 @@ const currentWeather = async (locationKey) => {
 };
 
 const getForecast = async (locationKey) => {
+  debugger;
   const res = await fetch(
     `/api/weather/forecast/${encodeURIComponent(locationKey)}?&metric=true`,
     {
