@@ -105,7 +105,7 @@ const weatherData = async (locationKey) => {
       currentWeather(locationKey),
       getForecast(locationKey),
     ]);
-    const final = [currentWeatherData, forecastData];
+    const final = { currentWeatherData, forecastData };
 
     emit("final-data", final);
   } catch (error) {
