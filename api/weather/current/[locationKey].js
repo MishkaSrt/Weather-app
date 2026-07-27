@@ -20,20 +20,20 @@ export default async function handler(req, res) {
   }
 
   // const currentWeatherUrl = `https://dataservice.accuweather.com/currentconditions/v1/${encodeURIComponent(locationKey)}?details=true&getPhotos=true`;
-  try {
-    const apiResponse = await fetch(currentWeatherUrl, {
-      method: "GET",
-      headers: {
-        Authorization: authHeader,
-        Accept: "application/json",
-      },
-    });
-    const data = await apiResponse.json();
+  // try {
+  //   const apiResponse = await fetch(currentWeatherUrl, {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: authHeader,
+  //       Accept: "application/json",
+  //     },
+  //   });
+  //   const data = await apiResponse.json();
 
-    return res.status(apiResponse.status).json(data);
-  } catch (error) {
-    return res
-      .status(500)
-      .json({ error: "Internal server error fetching weather data" });
-  }
+  //   return res.status(apiResponse.status).json(data);
+  // } catch (error) {
+  //   return res
+  //     .status(500)
+  //     .json({ error: "Internal server error fetching weather data" });
+  // }
 }
