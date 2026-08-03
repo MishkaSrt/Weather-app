@@ -44,7 +44,7 @@ const currentWeather = async (locationKey) => {
       throw new Error(`Server responded with status: ${res.status}`);
     }
 
-    const data = await res.text();
+    const data = await res.json();
     // console.log(data);
 
     return data;
@@ -72,7 +72,7 @@ const getForecast = async (locationKey) => {
       throw new Error(`Server responded with status: ${res.status}`);
     }
 
-    const data = await res.text();
+    const data = await res.json();
     searchTerm.query = "";
     searchTerm.results = null;
 
