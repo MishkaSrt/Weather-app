@@ -99,7 +99,20 @@ const handleSearch = () => {
   }, 500);
 };
 
-const weatherData = async (locationKey) => {
+// const weatherData = async (locationKey) => {
+//   try {
+//     const [currentWeatherData, forecastData] = await Promise.all([
+//       currentWeather(locationKey),
+//       getForecast(locationKey),
+//     ]);
+//     const final = { currentWeatherData, forecastData };
+
+//     emit("final-data", final);
+//   } catch (error) {
+//     console.log("One of the API calls failed", error);
+//   }
+// };
+const testFunction = async (locationKey) => {
   try {
     const [currentWeatherData, forecastData] = await Promise.all([
       currentWeather(locationKey),
@@ -107,9 +120,9 @@ const weatherData = async (locationKey) => {
     ]);
     const final = { currentWeatherData, forecastData };
 
-    emit("final-data", final);
+    console.log(final);
   } catch (error) {
-    console.log("One of the API calls failed", error);
+    console.log("console log failed", error);
   }
 };
 </script>
@@ -153,7 +166,7 @@ const weatherData = async (locationKey) => {
             {{ place.name }}, {{ place.country }}
           </button> -->
           <button
-            @click="weatherData(place.Key)"
+            @click="testFunction(place.Key)"
             class="px-3 my-2 hover:font-bold w-fit text-left"
           >
             {{ place.LocalizedName }}, {{ place.Country.LocalizedName }}
