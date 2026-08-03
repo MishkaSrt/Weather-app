@@ -1,15 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/api/weather/current/:locationKey",
-      "destination": "/api/weather/current/[locationKey].js"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     },
     {
-      "source": "/api/weather/forecast/:locationKey",
-      "destination": "/api/weather/forecast/[locationKey].js"
-    },
-    {
-      "source": "/((?!api).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
