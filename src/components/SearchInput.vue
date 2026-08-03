@@ -114,13 +114,15 @@ const handleSearch = () => {
 // };
 const testFunction = async (locationKey) => {
   try {
-    const [currentWeatherData, forecastData] = Promise.all([
-      currentWeather(locationKey),
-      // getForecast(locationKey),
-    ]);
-    const final = { currentWeatherData, forecastData };
+    console.log(locationKey, "test");
 
-    console.log(final);
+    // const [currentWeatherData, forecastData] = await Promise.all([
+    //   currentWeather(locationKey),
+    //   getForecast(locationKey),
+    // ]);
+    // const final = { currentWeatherData, forecastData };
+
+    // console.log(final);
   } catch (error) {
     console.log("console log failed", error);
   }
