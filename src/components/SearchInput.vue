@@ -46,7 +46,7 @@ const currentWeather = async (locationKey) => {
       throw new Error(`Server returned code ${res.status}`);
     }
 
-    const data = await res.text();
+    const data = await res.json();
     // console.log(data);
 
     return data;
