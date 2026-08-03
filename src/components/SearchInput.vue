@@ -107,21 +107,21 @@ const handleSearch = () => {
 
 const weatherData = async (locationKey) => {
   try {
-    const results = await Promise.allSettled([
-      currentWeather(locationKey),
-      getForecast(locationKey),
-    ]);
-
-    console.log("Current weather result:", results[0]);
-    console.log("Forecast result:", results[1]);
-
-    // const [currentWeatherData, forecastData] = await Promise.all([
+    // const results = await Promise.allSettled([
     //   currentWeather(locationKey),
     //   getForecast(locationKey),
     // ]);
-    // const final = { currentWeatherData, forecastData };
 
-    // emit("final-data", final);
+    // console.log("Current weather result:", results[0]);
+    // console.log("Forecast result:", results[1]);
+
+    const [currentWeatherData, forecastData] = await Promise.all([
+      currentWeather(locationKey),
+      getForecast(locationKey),
+    ]);
+    const final = { currentWeatherData, forecastData };
+
+    emit("final-data", final);
   } catch (error) {
     console.log("One of the API calls failed", error);
   }
