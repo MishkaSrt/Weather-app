@@ -114,7 +114,7 @@ const handleSearch = () => {
 // };
 const testFunction = async (locationKey) => {
   try {
-    const [currentWeatherData, forecastData] = await Promise.all([
+    const [currentWeatherData, forecastData] = Promise.all([
       currentWeather(locationKey),
       // getForecast(locationKey),
     ]);
