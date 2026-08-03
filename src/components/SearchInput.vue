@@ -29,7 +29,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const currentWeather = async (locationKey) => {
   try {
     const res = await fetch(
-      `${window.location.origin}/api/weather/current/${locationKey}?details=true&getPhotos=true`,
+      `/api/weather/current/${locationKey}?details=true&getPhotos=true`,
       {
         method: "GET",
         headers: {
@@ -41,9 +41,7 @@ const currentWeather = async (locationKey) => {
     );
 
     if (!res.ok) {
-      const textError = await res.text();
-      console.error(`HTTP Error ${res.status}:`, textError);
-      throw new Error(`Server returned code ${res.status}`);
+      throw new Error(`Server responded with status: ${res.status}`);
     }
 
     const data = await res.json();
@@ -51,14 +49,15 @@ const currentWeather = async (locationKey) => {
 
     return data;
   } catch (error) {
-    console.log("Error:", error);
+    console.error("Current Weather Error Details:", error);
+    throw error;
   }
 };
 
 const getForecast = async (locationKey) => {
   try {
     const res = await fetch(
-      `${window.location.origin}/api/weather/forecast/${locationKey}?&metric=true`,
+      `/api/weather/forecast/${locationKey}?&metric=true`,
       {
         method: "GET",
         headers: {
@@ -68,13 +67,20 @@ const getForecast = async (locationKey) => {
         },
       },
     );
+
+    if (!res.ok) {
+      throw new Error(`Server responded with status: ${res.status}`);
+    }
+
     const data = await res.json();
     searchTerm.query = "";
     searchTerm.results = null;
 
     return data;
   } catch (error) {
-    console.log("Error:", error);
+    console.error("Weather Forecast Error Details:", error);
+    throw error;
+    // console.log("Error:", error);
   }
 };
 
