@@ -58,7 +58,7 @@ const currentWeather = async (locationKey) => {
 const getForecast = async (locationKey) => {
   try {
     const res = await fetch(
-      `${window.location.key}/api/weather/forecast/${locationKey}?&metric=true`,
+      `${window.location.origin}/api/weather/forecast/${locationKey}?&metric=true`,
       {
         method: "GET",
         headers: {
