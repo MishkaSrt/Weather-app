@@ -115,7 +115,7 @@ const weatherData = async (locationKey) => {
     // console.log("Current weather result:", results[0]);
     // console.log("Forecast result:", results[1]);
 
-    const [currentWeatherData, forecastData] = await Promise.all([
+    const [currentWeatherData, forecastData] = await Promise.allSettled([
       currentWeather(locationKey),
       getForecast(locationKey),
     ]);
