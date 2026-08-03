@@ -116,7 +116,7 @@ const testFunction = async (locationKey) => {
   try {
     const [currentWeatherData, forecastData] = await Promise.all([
       currentWeather(locationKey),
-      getForecast(locationKey),
+      // getForecast(locationKey),
     ]);
     const final = { currentWeatherData, forecastData };
 
