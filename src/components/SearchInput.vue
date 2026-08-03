@@ -66,11 +66,15 @@ const getForecast = async (locationKey) => {
         },
       },
     );
-    const data = await res.json();
-    searchTerm.query = "";
-    searchTerm.results = null;
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+    return await res.json();
+    // const data = await res.json();
+    // searchTerm.query = "";
+    // searchTerm.results = null;
 
-    return data;
+    // return data;
   } catch (error) {
     console.log("Error:", error);
   }
