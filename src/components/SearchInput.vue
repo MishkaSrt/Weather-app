@@ -39,15 +39,17 @@ const currentWeather = async (locationKey) => {
         },
       },
     );
+
     if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
+      const textError = await res.text();
+      console.error(`HTTP Error ${res.status}:`, textError);
+      throw new Error(`Server returned code ${res.status}`);
     }
-    return await res.json();
 
-    // const data = await res.json();
-    // // console.log(data);
+    const data = await res.json();
+    // console.log(data);
 
-    // return data;
+    return data;
   } catch (error) {
     console.log("Error:", error);
   }
@@ -66,15 +68,11 @@ const getForecast = async (locationKey) => {
         },
       },
     );
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
-    }
-    return await res.json();
-    // const data = await res.json();
-    // searchTerm.query = "";
-    // searchTerm.results = null;
+    const data = await res.json();
+    searchTerm.query = "";
+    searchTerm.results = null;
 
-    // return data;
+    return data;
   } catch (error) {
     console.log("Error:", error);
   }
