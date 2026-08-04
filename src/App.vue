@@ -19,7 +19,7 @@ const addPlace = (data) => {
   // places.value.splice(0);
   // places.value.push(currentData, forecastData);
   places.value.push(data);
-  counter++;
+  counter.value++;
 };
 </script>
 
