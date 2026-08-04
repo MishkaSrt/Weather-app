@@ -60,7 +60,7 @@ const addPlace = (data) => {
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
         >
-          <div :key="counter" v-if="places.length !== 0" class="">
+          <div v-if="places.length !== 0" class="">
             <h1 class="text-2xl mt-10 ml-10">Forecast</h1>
             <div class="flex justify-evenly mt-10 mb-20">
               <div v-for="forecast in places[0].forecastData.DailyForecasts">
@@ -77,11 +77,7 @@ const addPlace = (data) => {
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
         >
-          <div
-            :key="counter"
-            v-if="places.length !== 0"
-            class="flex flex-col items-center"
-          >
+          <div v-if="places.length !== 0" class="flex flex-col items-center">
             <!-- {{ console.log(places) }} -->
             <CurrentHighlights
               :current-weather="places[0].currentWeatherData[0]"
