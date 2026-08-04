@@ -7,7 +7,7 @@ import WeatherForecastDay from "./components/WeatherForecastDay.vue";
 import CurrentHighlights from "./components/CurrentHighlights.vue";
 
 const places = ref([]);
-let counter = ref(0);
+const counter = ref(0);
 // const sortedArray = computed(() => {
 //   return places[0].forecastData[0].filter((_, item) => item % 3 === 0);
 // });
