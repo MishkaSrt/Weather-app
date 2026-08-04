@@ -7,7 +7,7 @@ import WeatherForecastDay from "./components/WeatherForecastDay.vue";
 import CurrentHighlights from "./components/CurrentHighlights.vue";
 
 const places = ref([]);
-const counter = ref(0);
+// const counter = ref(0);
 // const sortedArray = computed(() => {
 //   return places[0].forecastData[0].filter((_, item) => item % 3 === 0);
 // });
@@ -19,7 +19,7 @@ const addPlace = (data) => {
   // places.value.splice(0);
   // places.value.push(currentData, forecastData);
   places.value.push(data);
-  counter.value++;
+  // counter.value++;
 };
 </script>
 
@@ -35,7 +35,6 @@ const addPlace = (data) => {
 
         <!-- Weather info left column -->
         <Transition
-          :key="counter"
           enter-active-class="transition duration-500 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
@@ -57,7 +56,6 @@ const addPlace = (data) => {
         <!-- <h1 class="text-2xl mt-10 ml-10">Forecast</h1> -->
 
         <Transition
-          :key="counter"
           enter-active-class="transition duration-500 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
@@ -75,7 +73,6 @@ const addPlace = (data) => {
         </Transition>
 
         <Transition
-          :key="counter"
           enter-active-class="transition duration-500 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
