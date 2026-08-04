@@ -57,6 +57,7 @@ const addPlace = (data) => {
         <!-- <h1 class="text-2xl mt-10 ml-10">Forecast</h1> -->
 
         <Transition
+          :key="counter"
           enter-active-class="transition duration-500 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
@@ -74,6 +75,7 @@ const addPlace = (data) => {
         </Transition>
 
         <Transition
+          :key="counter"
           enter-active-class="transition duration-500 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
